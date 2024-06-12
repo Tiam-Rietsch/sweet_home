@@ -22,6 +22,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('properties.urls')),
+    path('auth/', include('users.urls')),
 ]
 
 # serve media files locally

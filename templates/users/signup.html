@@ -1,0 +1,78 @@
+{% extends '../base.html' %}
+
+{% load {% static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+{% block header %}
+    <header>
+        {% include '../utilities/navbar.html' with hide_search=True %}
+    </header>
+{% endblock header %}
+
+{% block main %}
+    <main>
+        <div id="signup-form-container">
+            <div class="form-header">
+                <span>signup</span>   
+            </div>
+            <form action="">
+                <div class="first-block">
+                    <div class="form-field">
+                        <label for="first_name">first name</label>
+                        <input type="text" id="first_name" name="fist_name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="last_name">last name</label>
+                        <input type="text" id="last_name" name="last_name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="date_of_birth">Date of birth</label>
+                        <input type="date" name="date_of_birth" id="date_of_birth">
+                    </div>
+                    <div class="form-field">
+                        <label for="phone">phone</label>
+                        <input type="number" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-field">
+                        <button type="button" class="btn btn-theme" id="next-btn">next</button>
+                    </div>
+                </div>
+                <div class="second-block aside">
+                    <div class="form-field">
+                        <label for="email">email</label>
+                        <input type="text" id="email" name="email" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="password">password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="password-repeat">repeat password</label>
+                        <input type="password" id="password-repeat" name="password-repeat" required>
+                    </div>
+                    <div class="form-field check-field">
+                        <input type="checkbox" name="accept_terms" id="accept_terms">
+                        <label for="accept_terms">I agrea to SweetHome's <a href="">Terms and services</a></label>
+                    </div>
+                    <div class="form-field">
+                        <button type="submit" class="btn btn-theme">Signup</button>
+                    </div>
+                    <div class="form-field">
+                        <button type="button" class="btn btn-gray" id="back-btn">back</button>
+                    </div>
+                    <div class="form-field info-section">
+                        <p>By <b>signing up</b>, I agree to SweetHome's <a href="">Terms of service</a>, <a href="">Payment Terms of services</a> and acknowledge the <a href="">Privacy Policy</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+{% endblock main %}
+
+{% block scripts %}
+    <script src="{% static 'js/signup.js' %}"></script>
+{% endblock scripts %}
