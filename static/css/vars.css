@@ -1,6 +1,6 @@
 :root {
     --black: #141d1b; 
-    --link-color: #68cfdd;
+    --link-color: #37ac93;
     --light-gray: #82868dfe;
     --line-color: #e4e4e4;
     --light-green: #32c3b0;
@@ -8,8 +8,33 @@
 
     /* shadows */
     --soft-light-green-shadow: 0px 0px 7px 0px #79d5ca47;
-    --soft-light-green-shadow-border: 1px solid #79d5ca9d;
+    --soft-light-green-shadow-border: 1px solid #21dfc99d;
 
     --soft-light-gray-shadow: 0px 0px 7px 1px #cddbd99f;
     --soft-light-gray-shadow-border: 1px solid #b7bbba;
+
+    --lift-light-gray-shadow: 0px 5px 17px 0px #ddddddf7;
+    --lift-light-gray-shadow-border: 2px solid #d6d6d6b2;
+}
+
+.btn {
+    min-width: fit-content;
+    border: none;
+    padding: 0.9em 1em;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-theme {
+    color: white;
+    background-color: var(--light-green);
+}
+
+.btn-gray {
+    color: white;
+    background-color: var(--light-gray);
 }

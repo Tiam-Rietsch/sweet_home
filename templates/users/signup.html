@@ -1,6 +1,6 @@
 {% extends '../base.html' %}
 
-{% load {% static %}
+{% load static %}
 
 {% block styles %}
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block header %}
-    <header>
+    <header class="header-shrink">
         {% include '../utilities/navbar.html' with hide_search=True %}
     </header>
 {% endblock header %}
