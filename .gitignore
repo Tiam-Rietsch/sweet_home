@@ -1,6 +1,6 @@
 # venv
-venv
-vlenv
+venv/
+vlenv/
 
 # Django #
 *.log
