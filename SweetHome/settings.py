@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     
     # installed apps 
     'users.apps.UsersConfig',
-    'properties.apps.PropertiesConfig'
+    'properties.apps.PropertiesConfig',
+    
+    
 ]
 
 MIDDLEWARE = [
