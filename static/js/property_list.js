@@ -17,3 +17,27 @@ document.addEventListener('scroll', (event) => {
         header.classList.remove('header-shrink')
     }
 })
+
+const cards = document.querySelectorAll('.property-card')
+cards.forEach(card => {
+    card.addEventListener('click', (event) => {
+        console.log(event.target)
+    }) 
+})
+
+const cardLinks = document.querySelectorAll('.card-link')
+cardLinks.forEach(link => {
+
+    link.addEventListener('click', (event) => {
+        event.preventDefault()
+        const imgIndex = link.dataset.imgIndex;
+        const img = link.parentElement.parentElement.querySelector(`.card-img img:nth-child(${imgIndex})`)
+
+        img.scrollIntoView({
+            'behavior': "smooth",
+            'block': 'nearest'
+        })
+
+        return false
+    })
+})
