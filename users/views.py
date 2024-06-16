@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import User
+from .models import User, ProprietorProfile
+from .forms import ProprietorProfileForm
+
 
 from django.contrib.auth import authenticate, login 
 
@@ -46,3 +48,24 @@ def signup_view(request):
         )
         user.save()
         return redirect('login')
+    
+
+
+def become_proprietor_view(request):
+    if request.method == "GET":
+        pf= ProprietorProfileForm()
+        context={
+            "form": pf
+        }
+        return render(request, "users/become_proprietor.html", context)
+    
+    if request.method == "POST":
+        proprietor_profile = ProprietorProfileForm(data=request.POST)
+        if proprietor_profile.is_valid():
+            proprietor_profile.save(commit = False)
+            proprietor_profile = ProprietorProfile.user
+            proprietor_profile.save
+            return redirect('property_list')
+        else:
+            return render(request, "users/become_proprietor.html")
+
