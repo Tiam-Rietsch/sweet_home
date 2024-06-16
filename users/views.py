@@ -48,9 +48,10 @@ def signup_view(request):
         return redirect('login')
     
 
-def proprietor_profile_view(request):
+def profile_view(request, pk):
     if request.method == "GET":
-        buyer_profile = request.user.buyer_profile
-        proprietor_profile = request.user.proprietor_profile
+        user = User.objects.get(id=pk)
+        buyer_profile = user.buyer_profile
+        proprietor_profile = user.proprietor_profile
         context = {"buyer_profile":buyer_profile, "proprietor_profile":proprietor_profile}
         return render (request, "users/proprietor_profile.html", context)
