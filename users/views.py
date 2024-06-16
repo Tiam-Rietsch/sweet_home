@@ -60,12 +60,12 @@ def become_proprietor_view(request):
         return render(request, "users/become_proprietor.html", context)
     
     if request.method == "POST":
-        proprietor_profile = ProprietorProfileForm(data=request.POST)
-        if proprietor_profile.is_valid():
-            proprietor_profile.save(commit = False)
-            proprietor_profile = ProprietorProfile.user
-            proprietor_profile.save
-            return redirect('property_list')
+        form = ProprietorProfileForm(data=request.POST)
+        if form.is_valid():
+            proprietor_profile = form.save(commit=False)
+            proprietor_profile.user = request.user
+            proprietor_profile.save()
+            return redirect('profile', request.user.id)
         else:
             return render(request, "users/become_proprietor.html")
 
