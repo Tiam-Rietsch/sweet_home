@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import User
+from .models import User, BuyerProfile, ProprietorProfile
 
 from django.contrib.auth import authenticate, login 
 
@@ -46,3 +46,11 @@ def signup_view(request):
         )
         user.save()
         return redirect('login')
+    
+
+def proprietor_profile_view(request):
+    if request.method == "GET":
+        buyer_profile = request.user.buyer_profile
+        proprietor_profile = request.user.proprietor_profile
+        context = {"buyer_profile":buyer_profile, "proprietor_profile":proprietor_profile}
+        return render (request, "users/proprietor_profile.html", context)

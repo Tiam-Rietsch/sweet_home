@@ -1,36 +1,39 @@
-{% extends '../base.html' %}
+    {% extends '../base.html' %}
 
-{% load static %}
+    {% load static %}
 
-{% block styles %}
-    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
-{% endblock %}
+    {% block styles %}
+        <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    {% endblock %}
 
-{% block header %}
-    <header class="header-shrink">
-        {% include '../utilities/navbar.html' with hide_search=True %}
-    </header>
-{% endblock %}
+    {% block header %}
+        <header class="header-shrink">
+            {% include '../utilities/navbar.html' with hide_search=True %}
+        </header>
+    {% endblock %}
 
-{% block main %}
-    <main>
-        <div id="signup-form-container">
-            <div class="form-header">
-                <span>  </span>   
-            </div>
-            <form  method="POST"  action="">
-                {% csrf_token  %}
-                {% for field in form %}
-                <div>
-                    <label for="{{ field_id_for_label}}">
-                        {{ field.label}}
-                    </label>
-                    {{field}} 
+    {% block main %}
+        <main>
+            <div id="signup-form-container">
+                <div class="form-header">
+                    <span>  </span>   
                 </div>
-                {% endfor %}
-                
-            </form>
-        </div>
-    </main>
-{% endblock %}
+                <form  method="POST"  action="">
+                    {% csrf_token  %}
+                    {% for field in form %}
+                    <div>
+                        <label for="{{ field_id_for_label}}">
+                            {{ field.label}}
+                        </label>
+                        {{field}} 
+                    </div>
+                    {% endfor %}
+                    
+                </form>
+            </div>
+        </main>
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
