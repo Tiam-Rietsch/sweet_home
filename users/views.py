@@ -53,9 +53,9 @@ def signup_view(request):
 
 def become_proprietor_view(request):
     if request.method == "GET":
-        pf= ProprietorProfileForm()
+        form= ProprietorProfileForm()
         context={
-            "form": pf
+            "form": form
         }
         return render(request, "users/become_proprietor.html", context)
     
