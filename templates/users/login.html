@@ -19,7 +19,8 @@
             <div class="form-header">
                 <span>Login</span>   
             </div>
-            <form action="">
+            <form  method="POST"  action="">
+                {% csrf_token  %}
                 <div class="form-field">
                     <label for="email">email</label>
                     <input type="text" id="email" name="email" required>
