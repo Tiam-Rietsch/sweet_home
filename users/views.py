@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import User
-
+from .models import BuyerProfile
 from django.contrib.auth import authenticate, login 
 
 
@@ -45,4 +45,10 @@ def signup_view(request):
             email=email
         )
         user.save()
+
+        buyer_profile = BuyerProfile.objects.create(
+            user=user
+        )
+        buyer_profile.save()
+
         return redirect('login')
