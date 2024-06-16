@@ -15,6 +15,7 @@ def signup_view(request):
     if request.method == "POST":
         first_name = request.POST["first_name"]
         last_name = request.POST["last_name"]
+        email = request.POST["email"]
         date_of_birth = request.POST["date_of_birth"]
         phone = request.POST["phone"]
         address = request.POST["address"]
@@ -27,7 +28,8 @@ def signup_view(request):
             last_name=last_name,
             date_of_birth=date_of_birth,
             address=address,
-            phone=phone
+            phone=phone,
+            email=email
         )
         user.save()
         return redirect('login')
