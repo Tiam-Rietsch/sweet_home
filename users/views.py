@@ -23,5 +23,4 @@ def signup_view(request):
     if request.method == "GET":
         return render(request, 'users/signup.html')
     
-    if request.method == "POST":
-        
+    # if request.method == "POST"
