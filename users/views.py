@@ -54,4 +54,4 @@ def profile_view(request, pk):
         buyer_profile = user.buyer_profile
         proprietor_profile = user.proprietor_profile
         context = {"buyer_profile":buyer_profile, "proprietor_profile":proprietor_profile}
-        return render (request, "users/proprietor_profile.html", context)
+        return render (request, "users/profile.html", context)
