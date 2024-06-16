@@ -19,7 +19,7 @@ class User(AbstractUser):
     
 
 class ProprietorProfile(models.Model):
-    user = models.OneToOneField("User", on_delete= models.CASCADE, related_name= "proprietor_profile", blank=True, null=True )
+    user = models.OneToOneField("User", on_delete= models.CASCADE, blank=True, null=True )
     cni_recto = models.ImageField(blank=True, null=True, upload_to="profile_picture/")
     cni_verso = models.ImageField(blank=True, null=True, upload_to="profile_picture/")
     facture_recto = models.ImageField(blank=True, null=True, upload_to="profile_picture/")
@@ -27,4 +27,4 @@ class ProprietorProfile(models.Model):
     status = models.CharField(max_length=50, blank=True, null=True)
 
 class BuyerProfile(models.Model):
-    user = models.OneToOneField("User", on_delete= models.CASCADE, related_name="buyerprofile", blank=True, null=True)
+    user = models.OneToOneField("User", on_delete= models.CASCADE, blank=True, null=True)

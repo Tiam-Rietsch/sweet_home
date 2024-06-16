@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import User
 from .models import BuyerProfile
+
+
 from django.contrib.auth import authenticate, login 
 
 
