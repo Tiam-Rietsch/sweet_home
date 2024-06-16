@@ -1,7 +1,7 @@
 from .models import ProprietorProfile
 from django.forms.models import ModelForm 
 
-class ProprietorPofileForm(ModelForm):
+class ProprietorProfileForm(ModelForm):
     
     class Meta:
         model=ProprietorProfile
