@@ -4,7 +4,7 @@ from .models import Property
 
 def property_list_view(request):
     properties = Property.objects.all()
-    return render(request, 'users/property_list.html', {"properties":properties} )
+    return render(request, 'property/property_list.html', {"properties":properties} )
 
 def createproperty(request):
     return render(request, "property/create_property.html")
