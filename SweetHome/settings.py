@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # installed apps 
     'users.apps.UsersConfig',
     'properties.apps.PropertiesConfig',
+    'agenda',
     
     
 ]
