@@ -204,6 +204,7 @@ main {
     transition: 0.4s ease;
     box-shadow: var(--soft-light-gray-shadow);
     background-color: white;
+    z-index: 99;
 }
 
 #nav-search.search-shrink {

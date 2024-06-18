@@ -1,0 +1,132 @@
+main {
+    padding: 12vh 15em 1em 15em;
+    align-items: flex-start;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+img {
+    cursor: pointer;
+}
+
+section#image-section {
+    height: 100%;
+    width: 50%;
+}
+
+.main-image-container {
+    height: 70%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.main-image-container img {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.secondary-images-wrapper {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding:1em 0;
+    gap: 1em;
+}
+
+.secondary-img-container {
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+
+.secondary-img-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+p.property-name {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+section#payment-section {
+    width: 40%;
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+    border: var(--soft-light-gray-shadow-border);
+    box-shadow: var(--soft-light-gray-shadow);
+}
+
+.form-header {
+    width: 100%;
+    padding: 1em;
+    border-bottom: var(--soft-light-gray-shadow-border);
+    font-size: 1.5em;
+}
+
+form {
+    width: 100%;
+    padding: 1em 2.5em;
+    position: relative;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 2em;
+    transition: opacity 0.4s ease;
+}
+
+
+.form-field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-field label {
+    font-size: 0.8em;
+}
+
+.form-field input {
+    height: 45px;
+    border: var(--soft-light-gray-shadow-border);
+    border-radius: 5px;
+    outline: none;
+    color: var(--black);
+    font-size: 1.1em;
+    padding: 0.7em;
+    width: 100%;
+    transition: 0.1s ease;
+}
+
+.form-field input:active,
+.form-field input:focus {
+    border: 4px solid #50dbb87c;
+}
+
+.form-field button {
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+}

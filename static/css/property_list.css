@@ -1,5 +1,9 @@
 @import url('./vars.css');
 
+main {
+    padding-left: 7em;
+    padding-right: 7em;
+}
 
 section.property-list-container {
     display: grid;
@@ -12,17 +16,18 @@ section.property-list-container {
 .property-card {
     position: relative;
     width: 100%;
-    height: 55vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+
 }
 
 .property-card .card-img {
     width: 100%;
-    height: 80%;
+    height: 77%;
     border-radius: 10px;
     background-color: var(--light-gray);
     display: flex;
@@ -30,7 +35,13 @@ section.property-list-container {
     justify-content: flex-start;
     align-items: center;
     overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     z-index: 5;
+}
+
+.card-img::-webkit-scrollbar {
+    display: none;
 }
 
 .card-img img {
@@ -42,7 +53,7 @@ section.property-list-container {
 
 .card-link-wrapper {
     position: absolute;
-    bottom: 22%;
+    bottom: 25%;
     left: 50%;
     transform: translateX(-50%);
     width: fit-content;
@@ -50,28 +61,35 @@ section.property-list-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 1em;
-    align-items: center;
+    gap: 0.5em;
+    align-items: flex-end;
     z-index: 6;
 }
 
 .card-link {
     opacity: 0.7;
     display: block;
-    height: 15px;
+    height: 10px;
     aspect-ratio: 1/1;
     border-radius: 100%;
     background-color: white;
     transition: opacity 0.4s ease;
+    transition: height 0.3s ease;
 }
 
 .card-link:hover {
+    height: 12px;
+    opacity: 1;
+}
+
+.card-link.selected {
+    height: 15px;
     opacity: 1;
 }
 
 .property-card .card-desc {
     width: 100%;
-    height: 20%;
+    height: 23%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -126,3 +144,6 @@ section.page-menu {
     margin-right: 20px;
     cursor: pointer;
 }
+
+
+

@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('properties.urls')),
     path('auth/', include('users.urls')),
-    path('', include('agenda.urls')),
+    path('visit/', include('agenda.urls')),
 ]
 
 # serve media files locally

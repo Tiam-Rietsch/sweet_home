@@ -1,9 +1,9 @@
 from django.urls import path 
-from .views import createvisit
-from .views import cancelvisit
+
+from . import views
 
 
 urlpatterns = [
-    path("/createvisit", createvisit, name = "createview"),
-    path("cancel/<int:pk>/visit", cancelvisit, name= "cancelvisit")
+    path("program/", views.program_visit_view, name = "program-visit"),
+    # path("cancel/<int:pk>/visit", cancelvisit, name= "cancelvisit")
 ]

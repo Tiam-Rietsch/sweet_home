@@ -1,0 +1,60 @@
+{% extends '../base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/program_visit.css' %}">
+{% endblock styles %}
+
+{% block header %}
+    <header class="header-shrink">
+        {% include '../utilities/navbar.html' with hide_search=True %}
+    </header>
+{% endblock header %}
+
+
+{% block main %}
+    <main>
+        <section id="image-section">
+            <div class="main-image-container">
+                <img src="{{ main_image.url }}" alt="">
+            </div>
+            <div class="secondary-images-wrapper">
+                {% for room in property.rooms.all %}
+                    {% if forloop.count != 0 %}
+                        <div class="secondary-img-container">
+                            <img src="{{ room.image.url }}" alt="">
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <p class="property-name">
+                Brief property detail name here
+            </p>
+        </section>
+        
+        <section id="payment-section">
+            <div class="form-header">
+                <span>Program visit</span>   
+            </div>
+            <form action="">
+                {% for field in form %}
+                <div class="form-field">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+                {% endfor %}
+                <div class="form-field">
+                    <button type="submit" class="btn btn-theme">Reserve visit</button>
+                </div>
+            </form>
+        
+        </section>
+    </main>
+{% endblock main %}
+
+{% block scripts %}
+    <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="{% static 'js/program_visit.js' %}"></script>
+{% endblock scripts %}

@@ -21,7 +21,8 @@ document.addEventListener('scroll', (event) => {
 const cards = document.querySelectorAll('.property-card')
 cards.forEach(card => {
     card.addEventListener('click', (event) => {
-        console.log(event.target)
+
+        changeLocation(event, card.dataset.propertyUrl)
     }) 
 })
 
@@ -30,6 +31,9 @@ cardLinks.forEach(link => {
 
     link.addEventListener('click', (event) => {
         event.preventDefault()
+
+        cardLinks.forEach(link => link.classList.remove('selected'))
+        link.classList.add('selected')
         const imgIndex = link.dataset.imgIndex;
         const img = link.parentElement.parentElement.querySelector(`.card-img img:nth-child(${imgIndex})`)
 
@@ -41,3 +45,9 @@ cardLinks.forEach(link => {
         return false
     })
 })
+
+function changeLocation(event, url) {
+    if (!event.target.classList.contains('card-link')) {
+        window.location.href = url
+    }
+}

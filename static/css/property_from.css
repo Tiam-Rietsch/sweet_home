@@ -1,0 +1,82 @@
+@import url('vars.css');
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12vh 0 0 0;
+}
+
+#form-container {
+    height: fit-content;
+    background-color: black;
+    width: 500px;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-shadow: var(--lift-light-gray-shadow);
+    border: var(--lift-light-gray-shadow-border);
+    overflow: hidden;
+}
+
+.form-header {
+    width: 100%;
+    padding: 1em;
+    border-bottom: var(--soft-light-gray-shadow-border);
+    font-size: 1.5em;
+}
+
+form {
+    width: 100%;
+    padding: 1em 2.5em;
+    position: relative;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 2em;
+    transition: opacity 0.4s ease;
+}
+
+
+.form-field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-field label {
+    font-size: 0.8em;
+}
+
+.form-field input {
+    height: 45px;
+    border: var(--soft-light-gray-shadow-border);
+    border-radius: 5px;
+    outline: none;
+    color: var(--black);
+    font-size: 1.1em;
+    padding: 0.7em;
+    width: 100%;
+    transition: 0.1s ease;
+}
+
+.form-field input:active,
+.form-field input:focus {
+    border: 4px solid #50dbb87c;
+}
+
+.form-field button {
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+}

@@ -1,0 +1,22 @@
+{% extends '../base.html' %}
+
+{% load {% static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+{% endblock styles %}
+
+{% block header %}
+    <header class="header-shrink">
+        {% include '../utilities/navbar.html' with hide_search=True %}
+    </header>
+{% endblock header %}
+
+
+{% block main %}
+{% endblock main %}
+
+{% block scripts %}
+    <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="{% static 'js/program_visit.js' %}"></script>
+{% endblock scripts %}

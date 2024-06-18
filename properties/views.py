@@ -3,7 +3,11 @@ from .models import Property
 
 
 def property_list_view(request):
-    properties = Property.objects.all()
+    properties = []
+    for property in Property.objects.all():
+        if len(property.rooms.all()) == 0:
+            return
+        properties.append(property)
     return render(request, 'property/property_list.html', {"properties":properties} )
 
 def createproperty(request):
@@ -15,6 +19,13 @@ def updateproperty(request):
 def deleteproperty(request):
     return render(request, "property/detete_property.html")
     
+def property_detail_view(request, pk):
+    property = Property.objects.get(id=pk)
+    context = {
+        "property": property,
+        "main_image": property.rooms.all()[0].image
+    }
+    return render(request, 'property/property_detail.html', context)
 
     
     

@@ -22,24 +22,28 @@
 {% block main %}
 <main>
     <section class="property-list-container">
-        <div class="property-card">
+        {% for property in properties %}
+        <div class="property-card" data-property-url="{% url 'property-detail' property.id %}">
             <div class="card-img">
-                <img src="{% static 'images/1.jpg' %}" alt="" id="p1-img1">
-                <img src="{% static 'images/2.jpg' %}" alt="" id="p1-img2">
-                <img src="{% static 'images/3.jpg' %}" alt="" id="p1-img3">
-
+                {% for room in property.rooms.all %}
+                    <img src="{{room.image.url}}" alt="">
+                {% endfor %}
             </div>
             <div class="card-link-wrapper">
-                <a class="card-link" data-img-index=1></a>
-                <a class="card-link" data-img-index=2></a>
-                <a class="card-link" data-img-index=3></a>
+                {% for room in property.rooms.all %}
+                    <a 
+                        {% if forloop.counter == 1 %} class="card-link selected" {% else %} class="card-link" {% endif %}
+                        data-img-index={{forloop.counter}}>
+                    </a>
+                {% endfor %}
             </div>
             <div class="card-desc">
-                <h4>Property Town</h4>
-                <p>Property standing</p>
-                <h4>0000 XAF</h4>
+                <h4>{{ property.get_property_type_display }} &#x2022; {{ property.city }} | {{ property.neighborhood }}</h4>
+                <p>{{ property.get_standing_display }}</p>
+                <h4>{{ property.price }} XAF</h4>
             </div>
         </div>
+        {% endfor %}
     </section>
     <section class="page-menu">
         <a class="previous-btn">

@@ -1,0 +1,140 @@
+{% extends '../base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/property_detail.css' %}">
+{% endblock styles %}
+
+{% block header %}
+    <header class="header-shrink">
+        {% include '../utilities/navbar.html' %}
+    </header>
+{% endblock header %}
+
+{% block main %}
+    <div id="nav-search" class="search-shrink">
+        {% include '../utilities/nav_search_form.html' %}
+    </div>
+    <main>
+        <section id="property-title">
+            <h3>Property title here</h3>
+        </section>
+        <section id="property-image">
+            <div class="main-image-container">
+                <img src="{{ main_image.url }}" alt="">
+            </div>
+            <div class="additional-images-container">
+                {% for room in property.rooms.all %}
+                    {% if foorloop.counter != 1 %}
+                        <div class="add-img-wrapper">
+                            <img src="{{ room.image.url }}" alt="">
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        <section id="property-overview" class="right-side-section">
+            <p>property description here</p>
+            <div class="rooms-container">
+                <div class="room-info">
+                    <span>2</span>
+                    <span>baths</span>
+                </div>
+                <div class="room-info">
+                    <span>2</span>
+                    <span>baths</span>
+                </div>
+                <div class="room-info">
+                    <span>2</span>
+                    <span>baths</span>
+                </div>
+                <div class="room-info">
+                    <span>2</span>
+                    <span>baths</span>
+                </div>
+            </div>
+            <div class="review-rating-container">
+                <div class="standing">
+                    <span>Premium</span>
+                </div>
+                <div class="rating">
+                    <p class="score">
+                        4.91
+                    </p>
+                    <p class="stars">
+                        &#x2022;
+                        &#x2022;
+                        &#x2022;
+                        &#x2022;
+                    </p>
+                </div>
+                <div class="review">
+                    <p>22</p>
+                    <a href="">reviews</a>
+                </div>
+            </div>
+            <div class="proprietor-profile">
+                <div class="profile-img-wrapper">
+
+                </div>
+                <div class="profile-detail-wrapper">
+                    <p>proprietor name here</p>
+                    <p>
+                        <span>proprietor type</span>
+                        <span>2 months</span>
+                    </p>
+
+                </div>
+            </div>
+        </section>
+        <section id="property-desc">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore natus excepturi eos voluptate voluptatum quidem enim fugit illum neque vitae nisi totam quod commodi numquam unde esse aspernatur, facilis vero!
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi iusto assumenda, ipsam, inventore eius asperiores elige
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore natus excepturi eos voluptate voluptatum quidem enim fugit illum neque vitae nisi totam quod commodi numquam unde esse aspernatur, facilis vero!
+            </p>            
+            <a href="">show more...</a>
+        </section>
+        <section id="property-payment">
+            <div class="price-tag">
+                <span class="price">100 000 XAF</span>
+                <span class="unit">/ month</span> 
+            </div>
+            <div class="action-links-container">
+                <a class="btn btn-gray" href="">Acquire</a>
+                <a class="btn btn-theme" href="{% url 'program-visit' %}?property_id={{ property.id }}">Program a visit</a>
+                <span>visit fee 5 000 XAF</span>
+            </div>
+            <div class="bill-container">
+                <p>
+                    <span>100 000 XAF x 12 months</span>
+                    <span>1 200 000 XAF</span>
+                </p>
+                <p>
+                    <span>100 000 XAF x 2 month caution</span>
+                    <span>200 000 XAF</span>
+                </p>
+            </div>
+            <div class="total-container">
+                <p>
+                    <span>1 year payment</span>
+                    <span>1 400 000 XAF</span>
+                </p>
+            </div>
+        </section>
+        <section id="map-container" class="right-side-container">
+            <div class="map"></div>
+        </section>
+    </main>
+{% endblock main %}
+
+{% block scripts %}
+    <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="{% static 'js/property_detail.js' %}"></script>
+{% endblock scripts %}

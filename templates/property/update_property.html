@@ -1,0 +1,42 @@
+{% extends '../base.html' %}
+
+{% load {% static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/property_form.css' %}">
+{% endblock styles %}
+
+{% block header %}
+    <header class="header-shrink">
+        {% include '../utilities/navbar.html' with hide_search=True %}
+    </header>
+{% endblock header %}
+
+
+{% block main %}
+<main>
+    <div id="form-container">
+        <div class="form-header">
+            <span>Login</span>   
+        </div>
+        <form  method="POST"  action="">
+            {% csrf_token  %}
+            {% for field in form %}
+            <div class="form-field">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+            </div>
+            {% endfor %}
+            <div class="form-field">
+                <button type="submit" class="btn btn-theme">Login</button>
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock main %}
+
+{% block scripts %}
+    <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="{% static 'js/program_visit.js' %}"></script>
+{% endblock scripts %}
