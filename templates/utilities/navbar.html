@@ -27,11 +27,12 @@
         <li class="nav-item">
             <a href="" class="active">Rent your home</a>
         </li>
-        <button class="nav-item profile-container">
+        <div class="nav-item profile-container">
+            <button>&#x2630;</button>
             <!-- hamburger menu button here-->
             <div class="profile-img-container">
-                <img src="" alt="">
+                <img src="{{ user.profile_picture.url }}" alt="">
             </div>
-        </button>
+        </div>
     </ul>
 </nav>

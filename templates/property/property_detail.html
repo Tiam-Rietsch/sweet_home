@@ -57,7 +57,7 @@
             </div>
             <div class="review-rating-container">
                 <div class="standing">
-                    <span>Premium</span>
+                    <span>{{ property.get_standing_display }}</span>
                 </div>
                 <div class="rating">
                     <p class="score">
@@ -77,13 +77,13 @@
             </div>
             <div class="proprietor-profile">
                 <div class="profile-img-wrapper">
-
+                    <img src="{{ property.proprietor.profile_picture.url }}" alt="">
                 </div>
                 <div class="profile-detail-wrapper">
-                    <p>proprietor name here</p>
+                    <p>{{ property.proprietor.first_name }}</p>
                     <p>
-                        <span>proprietor type</span>
-                        <span>2 months</span>
+                        <span>Super Host</span>
+                        <span>since 2 months</span>
                     </p>
 
                 </div>
@@ -91,13 +91,12 @@
         </section>
         <section id="property-desc">
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore natus excepturi eos voluptate voluptatum quidem enim fugit illum neque vitae nisi totam quod commodi numquam unde esse aspernatur, facilis vero!
+                Live the luxurious life in Douala in this stunning premium house. This expansive property boasts modern amenities and elegant finishes, perfect for those who appreciate the finer things. Enjoy breathtaking views and ample space for entertaining in this prime location.
             </p>
             <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi iusto assumenda, ipsam, inventore eius asperiores elige
-            </p>
+                This premium house offers unparalleled comfort and sophistication. Unwind in the spa-like bathrooms or relax in the sprawling living areas. The gourmet kitchen is a chef's dream, while the private outdoor space provides a tranquil oasis.            </p>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore natus excepturi eos voluptate voluptatum quidem enim fugit illum neque vitae nisi totam quod commodi numquam unde esse aspernatur, facilis vero!
+                Don't miss this opportunity to own a piece of Douala's most prestigious real estate. Contact us today to schedule a viewing of this exceptional property.
             </p>            
             <a href="">show more...</a>
         </section>
@@ -127,9 +126,6 @@
                     <span>1 400 000 XAF</span>
                 </p>
             </div>
-        </section>
-        <section id="map-container" class="right-side-container">
-            <div class="map"></div>
         </section>
     </main>
 {% endblock main %}

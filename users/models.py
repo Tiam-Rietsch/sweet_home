@@ -18,7 +18,6 @@ class User(AbstractUser):
         return self.username
         
     
-
 class ProprietorProfile(models.Model):
     user = models.OneToOneField("User", on_delete= models.CASCADE, blank=True, null=True )
     cni_recto = models.ImageField(blank=True, null=True, upload_to="profile_picture/")
