@@ -7,7 +7,7 @@ def property_list_view(request):
     properties = []
     for property in Property.objects.all():
         if len(property.rooms.all()) == 0:
-            return
+            continue
         properties.append(property)
     return render(request, 'property/property_list.html', {"properties":properties} )
 
@@ -21,9 +21,12 @@ def property_create_view(request):
         form = PropertyForm(request.POST, request.FILES)
         if form.is_valid():
             property = form.save(commit=False)
+            print('the from  could save \n \n\n')
             property.proprietor = request.user.proprietorprofile
             property.save()
             return redirect('property-list')
+        else:
+            print('the form was not valid')
     
     return render(request, "property/create_property.html", context)
 

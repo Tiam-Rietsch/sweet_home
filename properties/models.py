@@ -37,7 +37,7 @@ class Property(models.Model):
         verbose_name = "propertie"
         
     def __str__(self):
-        return f'owner {self.proprietor.user.userame} | location {self.city} . {self.neighborhood}'
+        return f'owner {self.proprietor.user.username} | location {self.city} . {self.neighborhood}'
     
     
 class PropertyRoom(models.Model):
