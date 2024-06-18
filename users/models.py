@@ -20,11 +20,18 @@ class User(AbstractUser):
     
 class ProprietorProfile(models.Model):
     user = models.OneToOneField("User", on_delete= models.CASCADE, blank=True, null=True )
-    cni_recto = models.ImageField(blank=True, null=True, upload_to="profile_picture/")
-    cni_verso = models.ImageField(blank=True, null=True, upload_to="profile_picture/")
-    facture_recto = models.ImageField(blank=True, null=True, upload_to="profile_picture/")
-    facture_verso = models.ImageField(blank=True, null=True, upload_to="profile_picture/")
+    cni_recto = models.ImageField(blank=True, null=True, upload_to="cni_recto/")
+    cni_verso = models.ImageField(blank=True, null=True, upload_to="cni_verso/")
+    facture_recto = models.ImageField(blank=True, null=True, upload_to="bill_recto/")
+    facture_verso = models.ImageField(blank=True, null=True, upload_to="bill_verso/")
     status = models.CharField(max_length=50, blank=True, null=True)
+    
+    def __str__(self):
+        return f'profile for {self.user.username}'
+
 
 class BuyerProfile(models.Model):
     user = models.OneToOneField("User", on_delete= models.CASCADE, blank=True, null=True)
+    
+    def __str__(self):
+        return f'profile for {self.user.username}'

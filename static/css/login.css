@@ -6,6 +6,7 @@ main {
     justify-content: center;
     align-items: center;
     padding: 12vh 0 0 0;
+    overflow-y: scroll;
 }
 
 #signup-form-container {

@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Property
+from .forms import PropertyForm
 
 
 def property_list_view(request):
@@ -10,8 +11,21 @@ def property_list_view(request):
         properties.append(property)
     return render(request, 'property/property_list.html', {"properties":properties} )
 
-def createproperty(request):
-    return render(request, "property/create_property.html")
+def property_create_view(request):
+    form = PropertyForm()
+    context = {
+        "form": form
+    }
+    
+    if request.method == 'POST':
+        form = PropertyForm(request.POST, request.FILES)
+        if form.is_valid():
+            property = form.save(commit=False)
+            property.proprietor = request.user.proprietorprofile
+            property.save()
+            return redirect('property-list')
+    
+    return render(request, "property/create_property.html", context)
 
 def updateproperty(request):
     return render(request, "property/update_property.html")

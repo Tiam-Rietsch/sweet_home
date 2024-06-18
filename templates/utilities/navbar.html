@@ -1,6 +1,6 @@
 <nav>
     <div class="logo-img-container">
-        <img src="" alt="logo Image">
+        <a href="{% url 'property-list' %}">SweeTHome</a>
     </div>
 
     {% if not hide_search %}
@@ -25,7 +25,11 @@
             <a href="">About us</a>
         </li>
         <li class="nav-item">
-            <a href="" class="active">Rent your home</a>
+            {% if user.proprietorprofile %}
+                <a href="{% url 'create-property' %}" class="active">rent a property</a>
+            {% else %}
+                <a href="{% url 'become-proprietor' %}" class="active">become proprietor</a>
+            {% endif %}
         </li>
         <div class="nav-item profile-container">
             <button>&#x2630;</button>

@@ -30,7 +30,7 @@
                 {% endfor %}
             </div>
             <p class="property-name">
-                Brief property detail name here
+                {{ property.get_property_type_display }} &#x2022; {{ property.city }} | {{ property.neighborhood }}
             </p>
         </section>
         
@@ -38,7 +38,8 @@
             <div class="form-header">
                 <span>Program visit</span>   
             </div>
-            <form action="">
+            <form action="" method="POST">
+                {% csrf_token %}
                 {% for field in form %}
                 <div class="form-field">
                     <label for="{{ field.id_for_label }}">{{ field.label }}</label>

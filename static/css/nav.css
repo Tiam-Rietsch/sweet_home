@@ -55,6 +55,16 @@ header > nav {
     padding: 0 2em;
 }
 
+.logo-img-container {
+    font-family: "Lobster";
+    font-size: 2em;
+}
+
+.logo-img-container a {
+    font-weight: 700;
+    font-family: "Lobster", sans-serif;
+}
+
 header div.nav-search-bar {
     visibility: hidden;
 }

@@ -1,11 +1,11 @@
 {% extends '../base.html' %}
 
-{% load {% static %}
+{% load static %}
 
 {% block styles %}
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
-    <link rel="stylesheet" href="{% static 'css/property_form.css' %}">
-{% endblock styles %}
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
 
 {% block header %}
     <header class="header-shrink">
@@ -13,30 +13,62 @@
     </header>
 {% endblock header %}
 
-
 {% block main %}
-<main>
-    <div id="form-container">
-        <div class="form-header">
-            <span>Login</span>   
+    <main>
+        <div id="signup-form-container">
+            <div class="form-header">
+                <span>Post Property</span>   
+            </div>
+            <form method = "POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="first-block">
+                    <div class="form-field">
+                        <label for="{{ form.land_title.id_for_label }}">{{ form.land_title.label }}</label>
+                        {{ form.land_title }}
+                    </div>
+                    <div class="form-field">
+                        <label for="{{ form.property_type.id_for_label }}">{{ form.property_type.label }}</label>
+                        {{ form.property_type }}
+                    </div>
+                    <div class="form-field">
+                        <label for="{{ form.city.id_for_label }}">{{ form.city.label }}</label>
+                        {{ form.city }}
+                    </div>
+                    <div class="form-field">
+                        <label for="{{ form.neighborhood.id_for_label }}">{{ form.neighborhood.label }}</label>
+                        {{ form.neighborhood }}
+                    </div>                    
+                    <div class="form-field">
+                        <label for="{{ form.standing.id_for_label }}">{{ form.standing.label }}</label>
+                        {{ form.standing }}
+                    </div>
+                    <div class="form-field">
+                        <button type="button" class="btn btn-theme" id="next-btn">next</button>
+                    </div>
+                </div>
+                <div class="second-block aside">
+                    <div class="form-field">
+                        <label for="{{ form.price.id_for_label }}">{{ form.price.label }}</label>
+                        {{ form.price }}
+                    </div>
+                    <div class="form-field">
+                        <label for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
+                        {{ form.description }}
+                    </div>
+  
+
+                    <div class="form-field">
+                        <button type="submit" class="btn btn-theme">Submit</button>
+                    </div>
+                    <div class="form-field">
+                        <button type="button" class="btn btn-gray" id="back-btn">back</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <form  method="POST"  action="">
-            {% csrf_token  %}
-            {% for field in form %}
-            <div class="form-field">
-                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                {{ field }}
-            </div>
-            {% endfor %}
-            <div class="form-field">
-                <button type="submit" class="btn btn-theme">Login</button>
-            </div>
-        </form>
-    </div>
-</main>
+    </main>
 {% endblock main %}
 
 {% block scripts %}
-    <script src="{% static 'js/navbar.js' %}"></script>
-    <script src="{% static 'js/program_visit.js' %}"></script>
+    <script src="{% static 'js/signup.js' %}"></script>
 {% endblock scripts %}

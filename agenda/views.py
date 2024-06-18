@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 from .forms import VisitForm
 from properties.models import Property
 
+@login_required(login_url='login')
 def program_visit_view(request):
     form = VisitForm()
     property = Property.objects.get(id=int(request.GET.get('property_id')))
@@ -16,7 +18,8 @@ def program_visit_view(request):
         form = VisitForm(data=request.POST)
         if form.is_valid():
             visit = form.save(commit=False)
-            visit.buyer_profile = request.user.buyer_profile
+            visit.buyer_profile = request.user.buyerprofile
+            visit.property = property
             visit.save()
         return redirect('property-detail', property.id)
     

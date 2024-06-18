@@ -19,7 +19,7 @@
     </div>
     <main>
         <section id="property-title">
-            <h3>Property title here</h3>
+            <h3>{{ property.get_property_type_display }}</h3>
         </section>
         <section id="property-image">
             <div class="main-image-container">
@@ -77,10 +77,10 @@
             </div>
             <div class="proprietor-profile">
                 <div class="profile-img-wrapper">
-                    <img src="{{ property.proprietor.profile_picture.url }}" alt="">
+                    <img src="{{ property.proprietor.user.profile_picture.url }}" alt="">
                 </div>
                 <div class="profile-detail-wrapper">
-                    <p>{{ property.proprietor.first_name }}</p>
+                    <p>{{ property.proprietor.user.first_name }}</p>
                     <p>
                         <span>Super Host</span>
                         <span>since 2 months</span>

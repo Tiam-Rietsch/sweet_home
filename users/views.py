@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import User
 from .models import BuyerProfile
 from .forms import ProprietorProfileForm
@@ -57,6 +58,7 @@ def signup_view(request):
         return redirect('login')
     
 
+@login_required(login_url='login')
 def profile_view(request, pk):
     if request.method == "GET":
         user = User.objects.get(id=pk)
@@ -66,6 +68,8 @@ def profile_view(request, pk):
         return render (request, "users/profile.html", context)
 
 
+
+@login_required(login_url='login')
 def become_proprietor_view(request):
     if request.method == "GET":
         form = ProprietorProfileForm()

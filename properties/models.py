@@ -18,6 +18,9 @@ class Property(models.Model):
         ROOM = 'R', 'Room'
         STUDIO = 'S', 'Studio'
     
+    class PropertyStatus(models.TextChoices):
+        APROVED = 'A', 'Aproved'
+        PENDING = 'P', 'PENDING'
     
     proprietor = models.ForeignKey(ProprietorProfile, on_delete=models.CASCADE, related_name='properties', blank=True, null=True)
     tenant = models.ForeignKey(BuyerProfile, on_delete=models.SET_NULL, related_name='properties', blank=True, null=True)
@@ -25,14 +28,16 @@ class Property(models.Model):
     property_type = models.CharField(max_length=3, choices=PropertyType, default=PropertyType.APARTMENT)
     city = models.CharField(max_length=100)
     neighborhood = models.CharField(max_length=100)
-    standing = models.CharField(max_length=100)
-    status = models.CharField(max_length=100)
+    status = models.CharField(max_length=100, choices=PropertyStatus, default=PropertyStatus.PENDING)
     price = models.BigIntegerField()
     description = models.TextField()
     standing = models.CharField(max_length=1, choices=Standing, default=Standing.STANDARD)
     
     class Meta:
         verbose_name = "propertie"
+        
+    def __str__(self):
+        return f'owner {self.proprietor.user.userame} | location {self.city} . {self.neighborhood}'
     
     
 class PropertyRoom(models.Model):
