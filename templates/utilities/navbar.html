@@ -1,3 +1,4 @@
+{% load image_converter %}
 <nav>
     <div class="logo-img-container">
         <a href="{% url 'property-list' %}">SweeTHome</a>
@@ -32,11 +33,21 @@
             {% endif %}
         </li>
         <div class="nav-item profile-container">
-            <button>&#x2630;</button>
+            <button class="menu-button">&#x2630;</button>
             <!-- hamburger menu button here-->
             <div class="profile-img-container">
-                <img src="{{ user.profile_picture.url }}" alt="">
+                <img src="{{ user | imageURL }}" alt="">
             </div>
+
+            <ul class="menu-section hidden">
+                {% if user.is_authenticated %}
+                    <li class="menu-option"><a href="{% url 'profile' user.id %}">Account</a></li>
+                    <li class="menu-option"><a href="">Logout</a></li>
+                {% else %}
+                    <li class="menu-option"><a href="{% url 'login' %}">Login</a></li>
+                    <li class="menu-option"><a href="{% url 'signup' %}">Signup</a></li>
+                {% endif  %}
+            </ul>
         </div>
     </ul>
 </nav>

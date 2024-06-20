@@ -15,6 +15,8 @@ tools.forEach(tool => {
     })
 })
 
+
+
 const selections = document.querySelectorAll('.selection')
 selections.forEach(selection => {
     const options = selection.querySelectorAll('.option')
@@ -43,4 +45,24 @@ bars.forEach(bar => {
             header.classList.add('header-shrink')
         }
     })
+})
+
+
+const menButtn = document.querySelector('.menu-button')
+menButtn.addEventListener('click', (event) => {
+    const menuSection = document.querySelector('.menu-section')
+    if (menuSection.classList.contains('hidden')) {
+        menuSection.classList.remove('hidden')
+    } else {
+        menuSection.classList.add('hidden')
+    }
+})
+
+const menuSection = document.querySelector('.menu-section') 
+menuSection.addEventListener('click', (event) => {
+    if (menuSection.classList.contains('hidden')) {
+        menuSection.classList.remove('hidden')
+    } else {
+        menuSection.classList.add('hidden')
+    }
 })

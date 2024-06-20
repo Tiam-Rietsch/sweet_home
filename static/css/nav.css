@@ -146,9 +146,10 @@ div.nav-search-bar label {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 30%;
+    width: 35%;
     height: 80%;
     list-style: none;
+    gap: 1.5em;
 }
 
 .nav-item > a {
@@ -175,16 +176,41 @@ div.nav-search-bar label {
 }
 
 .profile-img-container {
+    position: relative;;
     height: 100%;
     aspect-ratio: 1/1;
     border-radius: 100px;
-    background-color: var(--black);
+    /* background-color: var(--black); */
+}
+
+.profile-container .menu-section {
+    position: absolute;
+    top: 0;
+    width: fit-content;
+    right: 0;
 }
 
 .profile-container img {
     height: 100%;
     width: 100%;
     border-radius: inherit;
+    object-fit: cover;
+}
+
+.profile-container button {
+    height: 100%;
+    aspect-ratio: 1/1;
+    font-weight: 900;
+    margin-left: 5px;
+    border-radius: 100%;
+    background-color: white;
+    border: none;
+    transition: 0.4s ease;
+}
+
+.profile-container button:hover {
+    background-color: var(--light-gray);
+    color: white;
 }
 
 main {
@@ -327,7 +353,8 @@ button.search-btn {
     border-radius: 100px;
 }
 
-.selection {
+.selection,
+.menu-section {
     position: absolute;
     left: 50%;
     bottom: -20%;
@@ -341,6 +368,11 @@ button.search-btn {
     justify-content: space-between;
     align-items: flex-start;
     list-style: none;
+}
+
+.menu-section {
+    left: unset;
+    width: 200%;
 }
 
 .selection .selection-close {
@@ -362,7 +394,8 @@ button.search-btn {
     background-color: var(--light-gray);
 }
 
-.option {
+.option,
+.menu-option {
     transition: 0.2s ease;
     width: 100%;
     padding: 0.6em;

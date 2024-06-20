@@ -45,6 +45,50 @@
             </div>
         </div>
         {% endfor %}
+        {% for property in properties %}
+        <div class="property-card" data-property-url="{% url 'property-detail' property.id %}">
+            <div class="card-img">
+                {% for room in property.rooms.all %}
+                    <img src="{{room.image.url}}" alt="">
+                {% endfor %}
+            </div>
+            <div class="card-link-wrapper">
+                {% for room in property.rooms.all %}
+                    <a 
+                        {% if forloop.counter == 1 %} class="card-link selected" {% else %} class="card-link" {% endif %}
+                        data-img-index={{forloop.counter}}>
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="card-desc">
+                <h4>{{ property.get_property_type_display }} &#x2022; {{ property.city }} | {{ property.neighborhood }}</h4>
+                <p>{{ property.get_standing_display }}</p>
+                <h4>{{ property.price }} XAF</h4>
+            </div>
+        </div>
+        {% endfor %}
+        {% for property in properties %}
+        <div class="property-card" data-property-url="{% url 'property-detail' property.id %}">
+            <div class="card-img">
+                {% for room in property.rooms.all %}
+                    <img src="{{room.image.url}}" alt="">
+                {% endfor %}
+            </div>
+            <div class="card-link-wrapper">
+                {% for room in property.rooms.all %}
+                    <a 
+                        {% if forloop.counter == 1 %} class="card-link selected" {% else %} class="card-link" {% endif %}
+                        data-img-index={{forloop.counter}}>
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="card-desc">
+                <h4>{{ property.get_property_type_display }} &#x2022; {{ property.city }} | {{ property.neighborhood }}</h4>
+                <p>{{ property.get_standing_display }}</p>
+                <h4>{{ property.price }} XAF</h4>
+            </div>
+        </div>
+        {% endfor %}
     </section>
     <section class="page-menu">
         <a class="previous-btn">

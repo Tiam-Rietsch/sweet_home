@@ -62,8 +62,8 @@ def signup_view(request):
 def profile_view(request, pk):
     if request.method == "GET":
         user = User.objects.get(id=pk)
-        buyer_profile = user.buyer_profile
-        proprietor_profile = user.proprietor_profile
+        buyer_profile = user.buyerprofile
+        proprietor_profile = user.proprietorprofile
         context = {"buyer_profile":buyer_profile, "proprietor_profile":proprietor_profile}
         return render (request, "users/profile.html", context)
 
@@ -79,11 +79,11 @@ def become_proprietor_view(request):
         return render(request, "users/become_proprietor.html", context)
     
     if request.method == "POST":
-        form = ProprietorProfileForm(data=request.POST)
+        form = ProprietorProfileForm(request.POST, request.FILES)
         if form.is_valid():
             proprietor_profile = form.save(commit=False)
             proprietor_profile.user = request.user
             proprietor_profile.save()
-            return redirect('profile', request.user.id)
+            return redirect('property-list')
         else:
             return render(request, "users/become_proprietor.html")
